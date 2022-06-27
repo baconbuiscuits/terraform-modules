@@ -5,4 +5,13 @@ variable "input_data" {
     location = string
     tags     = map(string)
   }))
+  default = {
+    "key" = {
+      location = "value"
+      name = "value"
+      tags = {
+        "key" = "value"
+      }
+    }
+  }
 }
