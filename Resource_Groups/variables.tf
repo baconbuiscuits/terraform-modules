@@ -7,10 +7,10 @@ variable "input_data" {
   }))
   default = {
     "key" = {
-      location = "value"
-      name = "value"
+      location = "westeurope"
+      name     = "default_name"
       tags = {
-        "key" = "value"
+        "no-tags" = "no-tags"
       }
     }
   }
