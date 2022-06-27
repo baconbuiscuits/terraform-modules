@@ -4,5 +4,5 @@ resource "azurerm_resource_group" "the_resource_group" {
   name     = var.input_data[each.key].name
   location = var.input_data[each.key].location
   tags     = var.input_data[each.key].tags
-  
+
 }
