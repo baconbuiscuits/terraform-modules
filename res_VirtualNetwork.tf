@@ -6,7 +6,7 @@ resource "azurerm_virtual_network" "the_virtual_network" {
   address_space           = var.VirtualNetwork_input_data[each.key].address_space
   bgp_community           = join(":", [var.bgp_as_number, var.VirtualNetwork_input_data[each.key].bgp_community])
   edge_zone               = var.VirtualNetwork_input_data[each.key].edge_zone
-  flow_timeout_in_minutes = var.VirtualNetwork_input_data[each.key].flow_timeout_in_minutes
+  flow_timeout_in_minutes = var.VirtualNetwork_input_data[each.key].flow_timeout_in_minutes != null ? var.VirtualNetwork_input_data[each.key].flow_timeout_in_minutes : 4
 
 
   dynamic "ddos_protection_plan" {
@@ -22,11 +22,12 @@ resource "azurerm_virtual_network" "the_virtual_network" {
 }
 
 
-resource "azurerm_virtual_network_dns_servers" "the_dns_servers" {
-  for_each           = var.VirtualNetwork_input_data
-  virtual_network_id = azurerm_virtual_network.the_virtual_network.id
-  dns_servers        = var.VirtualNetwork_input_data[each.key].dns_servers
-}
+# resource "azurerm_virtual_network_dns_servers" "the_dns_servers" {
+#   for_each           = var.VirtualNetwork_input_data
+#   virtual_network_id = azurerm_virtual_network.the_virtual_network.id
+#   dns_servers        = var.VirtualNetwork_input_data[each.key].dns_servers
+#   depends_on = [azurerm_virtual_network.*.the_virtual_network]
+# }
 
 # resource "azurerm_subnet" "the_subnet" {
 #   name                 = "example-subnet"

@@ -7,7 +7,7 @@ variable "VirtualNetwork_input_data" {
     address_space           = list(string)
     bgp_community           = optional(string)
     edge_zone               = optional(string)
-    flow_timeout_in_minutes = number
+    flow_timeout_in_minutes = optional(number)
     dns_servers             = list(string)
     tags                    = optional(map(string))
     ddos_protection_plan = optional(map(object({
