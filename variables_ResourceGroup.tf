@@ -5,13 +5,5 @@ variable "ResourceGroup_input_data" {
     location = string
     tags     = optional(map(string))
   }))
-  default = {
-    "key" = {
-      location = "westeurope"
-      name     = "default_name"
-      tags = {
-        "no-tags" = "no-tags"
-      }
-    }
-  }
+  default = {}
 }
