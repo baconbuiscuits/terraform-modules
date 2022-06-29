@@ -4,7 +4,7 @@ resource "azurerm_virtual_network" "the_virtual_network" {
   resource_group_name     = var.VirtualNetwork_input_data[each.key].rg_name
   location                = var.VirtualNetwork_input_data[each.key].location
   address_space           = var.VirtualNetwork_input_data[each.key].address_space
-  bgp_community           = join(":", [var.bgp_as_number, var.VirtualNetwork_input_data[each.key].bgp_community])
+  bgp_community           = var.VirtualNetwork_input_data[each.key].bgp_community != null ? join(":", [var.bgp_as_number, var.VirtualNetwork_input_data[each.key].bgp_community]) : null
   edge_zone               = var.VirtualNetwork_input_data[each.key].edge_zone
   flow_timeout_in_minutes = var.VirtualNetwork_input_data[each.key].flow_timeout_in_minutes != null ? var.VirtualNetwork_input_data[each.key].flow_timeout_in_minutes : 4
 
