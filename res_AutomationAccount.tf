@@ -6,7 +6,7 @@ resource "azurerm_automation_account" "the_automation_account" {
   sku_name                      = var.AutomationAccount_input_data[each.key].sku_name == null ? "Basic" : var.AutomationAccount_input_data[each.key].sku_name
   public_network_access_enabled = var.AutomationAccount_input_data[each.key].public_network_access_enabled == null ? true : false
   dynamic "identity" {
-    for_each = var.AutomationAccount_input_data[each.key].identity
+    for_each = var.AutomationAccount_input_data[each.key].identity != null ? [1] : 0
     iterator = identity
     content {
       type         = identity.value.type
