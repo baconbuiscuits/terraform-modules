@@ -6,7 +6,7 @@
 #     location = string
 #     size = string
 #     admin_username = string
-    
+
 
 
 
@@ -15,5 +15,5 @@
 
 #     tags     = optional(map(string))
 #   }))
-  
+
 # }
