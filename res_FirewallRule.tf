@@ -1,4 +1,5 @@
 resource "azurerm_firewall_policy_rule_collection_group" "the_fw_rule" {
+  count = var.rule_collection_priority != null ? [1] : [0]
   name               = var.name
   firewall_policy_id = data.azurerm_firewall_policy.base_fw_policy.id
   priority           = var.rule_collection_priority

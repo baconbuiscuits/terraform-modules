@@ -4,10 +4,12 @@
 
 variable "name" {
   description = "firewall policy rule collection name"
+  default = null
   type        = string
 }
 variable "rule_collection_priority" {
   description = "priority of this rule collection"
+  default = null
   type        = number
 }
 
