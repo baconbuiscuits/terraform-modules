@@ -5,7 +5,7 @@ variable "AutomationAccount_input_data" {
     rg_name                       = string
     location                      = string
     sku_name                      = optional(string)
-    public_network_access_enabled = optional(string)
+    public_network_access_enabled = optional(bool)
     tags                          = optional(map(string))
     identity = optional(map(object({
       type         = string
